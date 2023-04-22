@@ -107,7 +107,7 @@ class CMDUsers(commands.Cog):
 		while True:
 			giveaways = get_all_giveaways()
 			for g in giveaways:
-				if g.ends_in.minute == datetime.datetime.now().minute:
+				if g.ends_in.minute == datetime.datetime.now() and g.ends_in.second == datetime.datetime.now().second and g.ends_in.hour == datetime.datetime.hour:
 					channel = await bot.fetch_channel(g.channel_id)
 
 					message = await channel.fetch_message(g.message_id)
